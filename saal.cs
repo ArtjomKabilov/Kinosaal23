@@ -30,7 +30,7 @@ namespace MyVorm
             this.tlp.RowStyles.Clear();
             piletid = new List<Pilet> { };
             int i, j;
-            //read_kohad = Ostetud_piletid();
+            read_kohad = Ostetud_piletid();
 
             for (i = 0; i < read; i++)
             {
@@ -78,6 +78,20 @@ namespace MyVorm
 
 
         }
+        public string[] Ostetud_piletid()
+        {
+            try
+            {
+                StreamReader f = new StreamReader(@"..\..\info.txt");
+                read_kohad = f.ReadToEnd().Split(';');
+                f.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            return read_kohad;
+        }
         string pocta = "";
         private void Saada_piletid(List<Pilet> piletid)
         {
@@ -88,10 +102,10 @@ namespace MyVorm
             {
                 var filmivaata = File.ReadLines(@"../../info.txt").Last();
 
-                string text = "Kinoteatr: „NeNadoDadja“\nFilmi on: " + filmivaata;
+                string text = "Kinoteatr: „Planet“\n ";
                 foreach (var item in piletid)
                 {
-                    text += "<h1>Pilet:" + cinema.nameMovie.Text + "\n " + "Rida: " + item.Rida + "Koht: " + item.Koht + "</h1>\n";
+                    text += "Film:" + cinema.nameMovie.Text + "\n " + "Rida: " + item.Rida + "Koht: " + item.Koht + "\n";
                 }
                 
                 MailMessage message = new MailMessage();

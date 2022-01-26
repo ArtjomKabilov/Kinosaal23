@@ -14,7 +14,7 @@ namespace MyVorm
 
         public void Saada_piletid()
         {
-            string text = "Nikita Rimitsen \n Kinoteatr: Veterok \n Sinu ost on \n";
+            string text = "Artjom Kabilov \n Kinoteatr: Planet \n Sinu ost on \n";
             /*foreach (var item in piletid)
             {
                 text += "Pilet:\n" + "Rida: " + item.Rida + "Koht: " + item.Koht + "\n";
